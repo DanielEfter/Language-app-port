@@ -14,7 +14,7 @@ export function isSpeechRecognitionSupported(): boolean {
   return 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
 }
 
-export function createSpeechRecognition(language: string = 'es-ES'): any {
+export function createSpeechRecognition(language: string = 'pt-PT'): any {
   if (Capacitor.isNativePlatform()) {
     return {
       native: true,
@@ -187,11 +187,11 @@ export function unlockAudio(): void {
 
 const GOOGLE_API_KEY = 'AIzaSyCnhDQbfnpgqyid2nMPaDsW53_rtZt6pWk';
 
-export async function speakText(text: string, language: string = 'es-ES'): Promise<void> {
+export async function speakText(text: string, language: string = 'pt-PT'): Promise<void> {
 
-  // 1. For Spanish - ALWAYS try Google Cloud TTS first (even on mobile)
+  // 1. For Portuguese - ALWAYS try Google Cloud TTS first (even on mobile)
   //    This ensures consistent high-quality pronunciation on all platforms
-  if (language === 'es-ES') {
+  if (language === 'pt-PT') {
     try {
       // Clean HTML tags if present
       const tempDiv = document.createElement('div');
@@ -206,8 +206,8 @@ export async function speakText(text: string, language: string = 'es-ES'): Promi
         body: JSON.stringify({
           input: { text: plainText },
           voice: { 
-            languageCode: 'es-ES',
-            name: 'es-ES-Neural2-A', // Premium Neural voice
+            languageCode: 'pt-PT',
+            name: 'pt-PT-Neural2-A', // Premium Neural voice
             ssmlGender: 'FEMALE'
           },
           audioConfig: { 
@@ -230,12 +230,12 @@ export async function speakText(text: string, language: string = 'es-ES'): Promi
         return;
       }
     } catch (error) {
-      console.warn('Google TTS error for Spanish, falling back to native/browser:', error);
+      console.warn('Google TTS error for Portuguese, falling back to native/browser:', error);
       // Continue to fallbacks below
     }
   }
 
-  // 2. Try Native TTS (Capacitor) for mobile - fallback or non-Spanish
+  // 2. Try Native TTS (Capacitor) for mobile - fallback or non-Portuguese
   if (Capacitor.isNativePlatform()) {
     try {
       // Clean HTML tags if present
