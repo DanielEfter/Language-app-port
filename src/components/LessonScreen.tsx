@@ -399,7 +399,7 @@ export default function LessonScreen({ lesson, onBack }: Props) {
 
   return (
     <div className="fixed inset-0 bg-[#F8F9F7] flex flex-col" dir="rtl">
-      <header className="bg-[#F8F9F7]/80 backdrop-blur-md border-b border-[#DAD7CD]/20 z-40 flex-shrink-0">
+      <header className="bg-[#F8F9F7]/80 backdrop-blur-md border-b border-[#DAD7CD]/20 z-40 flex-shrink-0 safe-top">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3 relative">
           
           {/* Info - Right Side */}
@@ -470,7 +470,7 @@ export default function LessonScreen({ lesson, onBack }: Props) {
         </div>
       </main>
 
-      <footer className="bg-[#F8F9F7] border-t border-[#DAD7CD]/20 px-4 py-4 sm:px-6 lg:px-8 z-40 flex-shrink-0">
+      <footer className="bg-[#F8F9F7] border-t border-[#DAD7CD]/20 px-4 py-4 sm:px-6 lg:px-8 z-40 flex-shrink-0 safe-bottom">
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
           <button
             onClick={handlePrevious}

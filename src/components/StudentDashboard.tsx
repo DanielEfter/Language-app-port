@@ -216,7 +216,7 @@ export default function StudentDashboard() {
         <div className="absolute bottom-40 left-0 w-72 h-72 bg-[#E9C46A]/20 rounded-full blur-[100px] -z-10" />
       </div>
 
-      <header className="sticky top-0 z-50 bg-[#F8F9F7]/80 backdrop-blur-xl border-b border-[#DAD7CD]/20 shadow-sm">
+      <header className="sticky top-0 z-50 bg-[#F8F9F7]/80 backdrop-blur-xl border-b border-[#DAD7CD]/20 shadow-sm safe-top">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <img src="/logo.png" alt="Logo" className="w-16 h-16 object-contain" />
@@ -287,7 +287,7 @@ export default function StudentDashboard() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 relative z-10">
+      <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 relative z-10 safe-bottom">
         <div className="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl sm:text-4xl font-light text-[#3A4031] mb-2 tracking-tight">
@@ -308,7 +308,7 @@ export default function StudentDashboard() {
               })()}, <span className="font-semibold">{user?.username}</span>
             </h2>
             <p className="text-[#A3B18A] text-lg font-medium">
-              מוכן להמשיך במסע הפורטוגזי שלך?
+              מוכן להמשיך במסע הספרדי שלך?
             </p>
           </div>
           
