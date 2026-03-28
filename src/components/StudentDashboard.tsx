@@ -221,7 +221,7 @@ export default function StudentDashboard() {
           <div className="flex items-center gap-4">
             <img src="/logo.png" alt="Logo" className="w-16 h-16 object-contain" />
             <div>
-              <h1 className="text-lg font-bold text-[#3A4031] tracking-tight">ספרדית למתחילים</h1>
+              <h1 className="text-lg font-bold text-[#3A4031] tracking-tight">פורטוגזית למתחילים</h1>
               <p className="text-xs font-medium text-gray-400">{lessons.length} שיעורים • רמת מתחילים</p>
             </div>
           </div>
@@ -337,7 +337,7 @@ export default function StudentDashboard() {
                 </div>
                 <h3 className="text-3xl font-light text-[#3A4031] mb-2">התחל את המסע שלך</h3>
                 <p className="text-lg text-[#3A4031] leading-relaxed mb-6">
-                  "היום זה יום מעולה לתרגל <span className="text-[#A3B18A] font-bold">ספרדית</span>. בוא נתחיל מהבסיס!"
+                  "היום זה יום מעולה לתרגל <span className="text-[#A3B18A] font-bold">פורטוגזית</span>. בוא נתחיל מהבסיס!"
                 </p>
                 <button 
                   onClick={() => {

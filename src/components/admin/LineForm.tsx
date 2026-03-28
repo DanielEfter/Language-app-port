@@ -215,7 +215,7 @@ export default function LineForm({ line, onChange, title, titleColor }: Props) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">טקסט בספרדית</label>
+        <label className="block text-sm font-medium mb-1">טקסט בפורטוגזית</label>
         <div className="border rounded-lg p-4 bg-white relative" dir="ltr" style={{ direction: 'ltr' }}>
           <div
             ref={editableRef}
@@ -230,7 +230,7 @@ export default function LineForm({ line, onChange, title, titleColor }: Props) {
             dir="ltr"
             lang="es"
             style={{ textAlign: 'left', direction: 'ltr', unicodeBidi: 'bidi-override', writingMode: 'horizontal-tb' }}
-            data-placeholder="הקלד טקסט בספרדית..."
+            data-placeholder="הקלד טקסט בפורטוגזית..."
           />
           {showColorEditor && selectedText && (
             <div className="absolute top-0 right-0 mt-2 mr-2 bg-white border border-gray-300 rounded-lg shadow-lg p-3 z-10">

@@ -106,7 +106,7 @@ export default function LoginScreen() {
               <img src="/logo.png" alt="Logo" className="w-32 h-32 object-contain mx-auto mb-6" />
             )}
             <h1 className="text-3xl font-bold text-slate-900 tracking-tight">{getTitle()}</h1>
-            <p className="text-slate-500 mt-2">קורס ספרדית למתחילים</p>
+            <p className="text-slate-500 mt-2">קורס פורטוגזית למתחילים</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">

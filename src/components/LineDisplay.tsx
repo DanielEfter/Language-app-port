@@ -503,11 +503,11 @@ export default function LineDisplay({ line, onNext }: Props) {
               <button
                 onClick={() => speakText(line.text_it, 'es-ES')}
                 className="w-20 h-20 bg-blue-50 rounded-[2rem] flex items-center justify-center text-blue-500 shadow-inner hover:scale-105 transition-transform active:scale-95"
-                title="השמע בספרדית"
+                title="השמע בפורטוגזית"
               >
                 <Volume2 className="w-8 h-8" />
               </button>
-              <span className="text-xs font-bold text-blue-500">ספרדית</span>
+              <span className="text-xs font-bold text-blue-500">פורטוגזית</span>
             </div>
             {line.text_en && (
               <div className="flex flex-col items-center gap-1">
