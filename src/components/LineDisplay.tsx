@@ -99,7 +99,7 @@ export default function LineDisplay({ line, onNext }: Props) {
 
     let newRecognition: any = null;
     if (isSpeechRecognitionSupported()) {
-      newRecognition = createSpeechRecognition('pt-PT');
+      newRecognition = createSpeechRecognition('pt-BR');
       setRecognition(newRecognition);
     }
 
@@ -501,7 +501,7 @@ export default function LineDisplay({ line, onNext }: Props) {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="flex flex-col items-center gap-1">
               <button
-                onClick={() => speakText(line.text_it, 'pt-PT')}
+                onClick={() => speakText(line.text_it, 'pt-BR')}
                 className="w-20 h-20 bg-blue-50 rounded-[2rem] flex items-center justify-center text-blue-500 shadow-inner hover:scale-105 transition-transform active:scale-95"
                 title="השמע בפורטוגזית"
               >

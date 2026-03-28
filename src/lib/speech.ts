@@ -14,7 +14,7 @@ export function isSpeechRecognitionSupported(): boolean {
   return 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
 }
 
-export function createSpeechRecognition(language: string = 'pt-PT'): any {
+export function createSpeechRecognition(language: string = 'pt-BR'): any {
   if (Capacitor.isNativePlatform()) {
     return {
       native: true,
@@ -187,11 +187,11 @@ export function unlockAudio(): void {
 
 const GOOGLE_API_KEY = 'AIzaSyCnhDQbfnpgqyid2nMPaDsW53_rtZt6pWk';
 
-export async function speakText(text: string, language: string = 'pt-PT'): Promise<void> {
+export async function speakText(text: string, language: string = 'pt-BR'): Promise<void> {
 
   // 1. For Portuguese - ALWAYS try Google Cloud TTS first (even on mobile)
   //    This ensures consistent high-quality pronunciation on all platforms
-  if (language === 'pt-PT') {
+  if (language === 'pt-BR') {
     try {
       // Clean HTML tags if present
       const tempDiv = document.createElement('div');
@@ -206,8 +206,8 @@ export async function speakText(text: string, language: string = 'pt-PT'): Promi
         body: JSON.stringify({
           input: { text: plainText },
           voice: { 
-            languageCode: 'pt-PT',
-            name: 'pt-PT-Neural2-A', // Premium Neural voice
+            languageCode: 'pt-BR',
+            name: 'pt-BR-Neural2-A', // Premium Neural voice
             ssmlGender: 'FEMALE'
           },
           audioConfig: { 
