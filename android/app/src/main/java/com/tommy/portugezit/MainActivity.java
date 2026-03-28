@@ -1,4 +1,4 @@
-package com.tommy.spanish;
+package com.tommy.portugezit;
 
 import android.os.Bundle;
 import android.view.View;
