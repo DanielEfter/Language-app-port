@@ -1,0 +1,8 @@
+{
+  "name": "Tommy Spanish",
+  "app_id": "a618fe69",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

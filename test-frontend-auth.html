@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בדיקת אימות</title>
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+        
+        const supabaseUrl = 'https://rtgnsganshsnftxexaww.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0Z25zZ2Fuc2hzbmZ0eGV4YXd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MDEzMDAsImV4cCI6MjA4NTM3NzMwMH0.oMV1qWvnV8o7_3tT2orQR5P7CTfpQxyYwjJbOPEjcxg';
+        
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        window.testConnection = async function() {
+            const output = document.getElementById('output');
+            output.innerHTML = '<div>בודק חיבור...</div>';
+            
+            try {
+                // Test 1: Check lessons without auth
+                const { data: lessons, error: lessonsError } = await supabase
+                    .from('lessons')
+                    .select('*')
+                    .eq('is_published', true)
+                    .order('index');
+                
+                if (lessonsError) {
+                    output.innerHTML += `<div style="color: red;">❌ שגיאה בטעינת שיעורים: ${lessonsError.message}</div>`;
+                    output.innerHTML += `<pre>${JSON.stringify(lessonsError, null, 2)}</pre>`;
+                } else {
+                    output.innerHTML += `<div style="color: green;">✅ נטענו ${lessons?.length || 0} שיעורים</div>`;
+                    output.innerHTML += `<pre>${JSON.stringify(lessons, null, 2)}</pre>`;
+                }
+                
+                // Test 2: Check current session
+                const { data: session } = await supabase.auth.getSession();
+                output.innerHTML += `<div><strong>Session:</strong></div>`;
+                output.innerHTML += `<pre>${JSON.stringify(session, null, 2)}</pre>`;
+                
+                // Test 3: Check localStorage
+                const storedUser = localStorage.getItem('current_user');
+                output.innerHTML += `<div><strong>LocalStorage User:</strong></div>`;
+                output.innerHTML += `<pre>${storedUser || 'null'}</pre>`;
+                
+            } catch (error) {
+                output.innerHTML += `<div style="color: red;">❌ שגיאה: ${error.message}</div>`;
+                output.innerHTML += `<pre>${JSON.stringify(error, null, 2)}</pre>`;
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: #f9f9f9;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        pre {
+            background: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>בדיקת חיבור Supabase</h1>
+    <button onclick="testConnection()">בדוק חיבור</button>
+    <div id="output"></div>
+</body>
+</html>

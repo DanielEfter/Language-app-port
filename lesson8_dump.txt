@@ -1,0 +1,157 @@
+  
+ 
+מפתח	בעברית	ומהמקבילה באנגלית (אם יש)
+	טקסטים להקלטה
+8-00100			השיעור הזה כולל גם משפטי יום-יום ומעט סלנג
+8-00200			באנגלית וגם בעברית אנחנו אומרים - מחכה ל...מישהו, באיטלקית אנחנו פשוט נחכה את .... ; למשל אני מחכה לך לא יהיה  SPERO PER TE  אלא Ti SPERO  , כלומר אני מחכה אותך (אנחנו נפגוש צורה מעוותת זו אצל זרים המתרגמים מילולית לעברית) -  דוגמאות..
+8-00300   	הוא מחכה לך		TI ASPETTO
+8-00400   	הם מחכים לי		MI ASPETTANO
+8-00500   	למה הם מחכים?		PERCHÉ ASPETTANO?
+8-00600   	חברה, למה את מחכה לי ?		PERCHÉ MI ASPETTI ?
+8-00700   	אנחנו מחכים		ASPETTIAMO
+8-00800   	למה אתה לא מחכה לי (אדוני)		PERCHÉ NON MI ASPETTI ?
+8-01000   	למה הם לא מחכים לי		PERCHÉ NON MI ASPETTANO ?
+8-01101  			ונמשיך בדוגמאות..
+8-01200	אנחנו מחכים לך		TI ASPETTIAMO  
+8-01300	האם נחכה לך ? 		TI ASPETTIAMO ?
+8-01301			  ולנושא שמעניין תיירים – שכר-מכר...
+8-01500  	אנחנו קונים את זה		LO COMPRIAMO  
+8-01600   	אנחנו לא קונים את זה		NON LO COMPRIAMO
+8-02100  	אני מחכה לו		LO ASPETTO
+8-02101   			ונחזור אל העבר הקרוב..
+8-02300   	חיכיתי		HO SPERATO
+8-02400   	עזבתי		HO PARTITO
+8-02401  	 		ניזכר שוב בהטיות של הפועל AVERE כי הוא עומד ביסוד העבר שאנחנו לומדים – העבר הקרוב..
+8-02402    	 הטיות הפול HABER		HO, HAI, HA, ABBIAMO, … , HANNO
+8-02403	 		ודוגמאות..
+8-02800  	לא הבנתי את מה שאתה אומר לי 		NON HO CAPITO COSA MI DICE 
+8-03000	קנינו		ABBIAMO COMPRATO
+8-03100   	עזבתי		HO PARTITO
+8-03200   	אתה, חבר, מכרת		HAI VENDUTO
+8-03300  	הכנתם את זה		LO HANNO PREPARATO
+8-03800    	הכנתי את זה		L'HO PREPARATO
+8-03900   	ארוחת הערב הוכנה  		LA CENA HA PREPARATA
+8-04000   	קיבלתי את התנאי		HO ACCEPTATO LA CONDIZIONE
+			יוצאים מהכלל בכתיב הם  ... FARE=FATTO  ו DIRE=DITTO
+8-04301   			יוצא מן הכלל נוסף הוא התצורה שך הפועל VEDERE  = VISTO
+8-04302   			ובמשפט..
+8-04400	ראיתי אותו		L`HO VISTO
+8-04401			במקום LO HO VISTO – בד"כ שיש שתי הברות רצופות בא במקומם פסיק   
+8-04500    	לא ראיתי אותו עדיין		ANCORA NON L`HO VISTO
+8-04501			יוצא מן הכלל נוסף   יהיה METTERE – הופך בעבר ל MESSO 
+8-04600   	איפה שמת את זה ?		DOVE LO HAI MESSO ?
+8-04700   	שמנו אותו כאן ?		LO ABBIAMO MESSO QUI ?
+8-04701			ועכשיו לנושא שמעסיק את הגיל השלישי, במיוחד...
+8-04800   	לשכוח		DIMENTICARE
+8-04900   	לא אשכח את זה – עתיד פשוט		NON LO DIMENTICHERÒ
+	בטוח		SICURO
+8-05001   			והנקבי..
+8-05002   	בטוחה		SICURA
+8-05100	אני  בטוח שלא נשכח את זה		SONO SICURO CHE NON LO DIMENTICHEREMO
+8-05101			   ובעבר הקרוב...
+8-05300  	לא שכחתי את זה		NON L`HO DIMENTICATO
+8-05500			מילה חדשה
+8-05501	הודעה		MESSAGGIO
+8-05600	השארתי הודעה עבורך		HO LASCIATO UN MESSAGGIO PER TE
+8-05700			לבלות זמן,לבזבז זמן,להעביר זמן זה...
+8-05701	לבלות זמן, לבזבז זמן, להעביר זמן		PASSARE
+8-05702			ובעבר הקרוב..
+8-05800   	בילינו הרבה זמן		ABBIAMO PASSATO MOLTO TEMPO  
+8-05900   	לא בזבזנו הרבה זמן		NON ABBIAMO PASSATO MOLTO TEMPO  
+8-05901   	כמה זמן עבר, כמה זמן בוזבז ?		QUANTO TEMPO HA PASSATO ?
+8-05902   			ובלי שום קשר...
+8-06100   	זה רעיון טוב		QUESTO È UNA BUONA IDEA   
+8-06101	זה רעיון לא רע		NON È UNA CATTIVA IDEA
+8-06102   			ומילה שנתקלנו בה כבר..
+8-06300   	להעדיף		PREFERIRE
+8-06301   			הטיות הפועל בהווה...
+8-06302   	הטיות הפועל PREFERIRE בהווה...		PREFERISCO ,PREFERISCI, PREFERISCE, PREFERIAMO,…,PREFERISCONO
+8-06401			ודוגמה..
+8-06500   	אני מעדיף להישאר כאן		PREFERISCO STARE QUI
+8-06501   			וקצת סלנג  ומילים שימושיות....
+8-06600    	בסדר , O.K		VA BENE !!
+8-06700	הבט !		GUARDA !
+8-06800  	שמע ! היי !					ASCOLTA !
+8-06900  	החשבון, בבקשה		IL CONTO PER FAVORE
+8-07000  	לשכור 		NOLEGGIARE
+8-07100	סוכנות להשכרת מכוניות		AGENZIA DI NOLEGGIO AUTO
+8-07200	מכנסי ג'ינס		JEANS 
+8-07300			להתראות אפשר להגיד בהרבה דרכים, תלוי בזמן הפרידה...
+8-07301	להתראות  		JEANS 
+8-07302	להתראות  		ADIO 
+8-07303	להתראות  		A RIVEDERCI
+8-07304	נתראה מחר		CI VEDIAMO DOMANI 
+8-07305	להתראות בשבוע הבא		CI VEDIAMO LA PROSIMA SEMANA 
+8-07306	להתראות  בשנה הבאה		CI VEDIAMO LA PROSIMO ANNO 
+8-07400    	מיץ		SUCCO
+	משקפיים		BICCHIERI
+8-07501			או..
+8-07502	משקפיים (לפני העיינים)		OCCHIALI
+8-07502	משקפי שמש		OCCHIALI DA SOLE
+8-07503  			מאד חשוב – בעיקר לא לאבד !!
+8-07600   	כרטיס אשראי		CARTA DI CREDITO
+8-07700   	כתובת מייל		INDIRIZZO E-MAIL
+8-07701   			ולשם שינוי – ציווי !
+8-07800   	אמור לי		DIMMI
+8-07900   	שמע אותי		ASCOLTAMI
+8-08000   	להיות חייב ל....		BISOGNARE
+8-08101   			ובמשפט..
+8-08200  	אתה חייב לקנות את זה  		BISOGNA COMPRARE QUESTO
+8-08500   	אני רוצה להישאר כאן		VOGLIO STARE QUI
+8-08600   	מתחשק לי להישאר כאן אתכם רבותי		VOGLIO STARE QUI CON VOI
+8-08601  	אני רוצה לאכול בשר		VOGLIO MANGIARE CARNE
+8-08700   	ארצה לראות את זה		VOGLIO VEDERLO
+8-08800	הייתי רוצה לעשות הזמנה או...		VORREI FARE UNA RISERVAZIONE
+8-09002  			ופקיד הקבלה ישאל..
+8-09100   	מה זמן אתה מתכנן להישאר (חושב להישאר)? 		QUANTO TEMPO PENSI STARE ?  
+8-09202			פועל חדש אך לא פחות חשוב...
+8-09300	לשאול		CHIEDERE
+8-09301			משפטים עם הפועל..
+8-09302			עם וריאציות של "ארצה מאד"..
+8-09400	ארצה לשאול אותך		VORREI CHIEDARTE
+8-09701			בעתיד האמיתי...	
+8-09800   	אני אשאל אותך מאוחר יותר		TI CHIEDEREI PIU TARDI
+8-09801   			בעתיד הקרוב..
+8-09900   	אני הולך לשאול אותך מאוחר יותר		VADO A CHIEDERTE PIU TARDI
+8-09901   			מילת קישור קטנה, אבל חשובה..
+8-10000	לשם, על מנת		PER
+8-10001			ומשפט מסכם לנושא זה...
+8-10100  	אני הולך לקרא לך מאוחר יותר ע"מ לשאול אותך אם אתה יכול לבוא לראות את זה אתנו הלילה		VADO A CHIAMARTI PIU TARDI  PER CHIEDERTTE SI PUOI VENIRE A VEDERLO CON NOI QUESTA NOTTE
+8-10101			  ישנן שלוש אפשרויות לדברים שקורים בעתיד הקרוב...
+8-10102			  הווה..
+8-10400    	מתי אנחנו מגיעים מחר ?		A CHE ORA ARRIVAMO DOMANI ?
+8-10401    			עתיד רגיל...
+8-10500   	באיזה שעה נגיע מחר ?		A CHE ORA ARRIVEREMO DOMANI ?
+8-10501   			עתיד קרוב.. 
+8-10600    	באיזה שעה אנחנו הולכים להגיע מחר		A CHE ORA ANDIAMO A ARRIVARE DOMANI ? 
+8-10601    			אנחנו הולכים ללמוד עכשיו שתי "מילות פטנט" שיעזרו לנו לדבר ב זמן עבר מיידי, בלי להתאמץ במיוחד :
+8-11100  	זה עושה		APPENA
+8-11200	בדיוק עזב לפני 10 דקות		SE N'E APPENA PARTITO 
+8-11300	בדיוק ראיתי אותו		L'HO APENA VISTO
+8-11400   	בדיוק הגעתי לכאן לפני יומיים		HA ARRIVATO QUI APENA DI DUE GIORNI
+8-11500	הגעתי לכאן נפני שבועיים		HO ARRIVATO QUI APENA DI DUE SETIMANI
+8-11501			בחלק האחרון של השיעור נתרגם משפטים יוםיומיים :
+8-11600   	אני הולך לסופר לקנות מצרכים לארוחת ערב		VADO AL SUPERMERCATO PER COMPRARE CIBO PER LA CENA
+
+8-11700  	היום לא אלך לעבודה כי אני מרגיש לא טוב		OGGI NON ANDRÓ AL LAVORO PERCHÉ  NON MI SENTO BENE
+8-11800   	ביום לא אלך (לר הולך ללכת...) לעבודה כי אני חולה		OGGI NON LAVORO PERCHÉ SONO MALATO
+8-11900   	אשתי לקחה את הילדים לקולנוע		MIA MOGLIE HA PORTATO I BAMBINI AL FILM
+8-12000	החברים שלי הולכים לבקר אותנו בסוף השבוע		I MIEI AMICI VERRANNO A TROVARCI ALLA FINE DELLA SETTIMANA
+8-12100   	כמה זמן אני צריך עוד לחכות ?		QUANTO TEMPO DEVO ASPETTARE DI PIÙ ?
+8-12200  	אתם באים לראות אותנו מחר ?		VIENI A TROVARCI DOMANI ?
+8-12300  	הנכדים שלי לא הולכים לבית הספר היום בגלל הקורונה		 I MIEI NIPOTI NON VANNO A SCUOLA OGGI A CAUSA DELLA CORONA
+8-12400	אני לא אצא להליכה כי יורד גשם עכשיו		NON CAMMINERÓ  PERCHÉ ORA PIOVE
+8-12500   	אתמול ירד גשם		HA PIOVUTO IERI
+8-12600   	לשכן שלי יש אוטו חדש		IL MIO VICINO HA UNA MACCHINA NUOVA
+8-12700  	אני ואשתי מנקים היום את הבית היום		IO E MIA MOGLIE ABBIAMO PULITO NOSTRA CASA OGGI 
+8-12800   	לא הלכנו הרבה זמן לסרט		È DA MOLTO TEMPO CHE NON ANDIAMO AL CINEMA
+8-12900    	מי לוקח היום את הנכדים מהגן ?		CHI PORTA OGGI I NIPOTI DALL'ASILO  ?
+8-13000    	איך הילדים היום ? כולם בריאים ?   		 COME SONO I BAMBINI OGGI ? SONO TUTTI SANI ?
+8-13100  	היום נלך לרקוד סלסה עם חברים במועדון הריקודים		OGGI ANDIAMO A BALLARE SALSA CON GLI AMICI NEL DANCE CLUB
+8-13200   	למרות המגפה נלך כולנו לאכול במסעדה סינית טובה		NONOSTANTE LA PANDEMIA, ANDREMO TUTTI A CENA IN UN BUON RISTORANTE CINESE
+8-13300   	למה לא קנית לחם וזיתים ?		PERCHÉ  NON HAI COMPRATO PANE E OLIVE ?
+8-13400   	שכחת לקנות חלב ? אז איך נשתה (ניקח) קפה ?		HAI DIMENTICATO DI COMPRARE IL LATTE? ALLORA COME BERREMO IL CAFFÈ ?    
+8-13500  	איפה שמת את המשקפיים שלי ?		DOVE HAI MESSO I MIEI OCCHIALI ?
+8-13501  			ולבסוף, בסיום השיעור השמיני אגיד לכם...
+8-13600  	מאד נהניתי בחברתכם		MI È PIACIUTO MOLTO LA TUA COMPAGNIA
+						

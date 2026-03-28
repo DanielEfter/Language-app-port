@@ -1,0 +1,152 @@
+  
+ 
+מפתח	בעברית	ומהמקבילה באנגלית (אם יש)
+	טקסטים להקלטה
+7-00100			נמשיך עם העתיד הפשוט
+7-00200	להתחיל		COMINCIARE
+7-00201			בעתיד קרוב זה יהיה..
+7-00300   	אני הולך להתחיל		VADO A COMINCIARE
+7-00301   			ובעתיד רגיל
+7-00302   	אתחיל		COMINCIERÓ
+7-00400   	אני הולך לקנות את זה		VADO A COMPRARLO
+7-00500     	אנחנו הולכים לקנות את זה		ANDIAMO A COMPRARLO
+7-00800  	אנחנו הולכים לקרא לך, לטלפן לך  יותר מאוחר					ANDIAMO A CHIAMARTE PIU TARDI
+7-00801  			ובעתיד רגיל
+7-00802  	נקרא לך יותר מאוחר		TI CHIAMERÒ PIU TARDI
+7-00803  			ואשאל אותך...
+7-00900   	באיזה שעה אתה הולך לקרא לי		A CHE ORA VAI A CHIAMARMI
+7-01000  	באיזה שעה הם הולכים לקרא לי		A CHE ORA VANNO A CHIAMARMI
+7-01001  			והתשובה לא אחרה לבוא..
+7-01300    	הם הולכים לקרוא לי מאוחר יותר		VANNO A CHIAMARMI PIU TARDI
+7-01301    			ובעתיד אמיתי..
+7-01400   	אנחנו נקרא לך		TI CHIAMEREMO
+7-01401   			ועכשיו חזרה קצרה... 
+7-01600   	להישאר		RIMANERE
+7-02300    	כמה זמן אתה הולך להישאר  כאן		QUANTO TEMPO VAI A RIMANERE QUI
+7-02500   	כמה זמן אנחנו הולכים להישאר ?		QUANTO TEMPO ANDIAMO A RIMANERE ?
+7-02501   			ומשפט מתוחכם...
+7-02600   	עדיין אינני יודע כמה זמן הולכים להישאר		ANCORA NON LO SO QUANTO TEMPO ANDIAMO A RIMANERE
+7-02601   			ובעתיד אמיתי..
+7-02602			ANCORA NON LO SO QUANTO TEMPO RIMANEREMO
+7-02902   			החזרה לעתיד
+7-03000   	אני אקנה את זה		LO COMPRARÒ
+7-03100   	אנחנו נקנה את זה		LO COMPRAREMO 
+7-03200   	הוא יקנה את זה		LUI LO COMPRARÁ   
+7-03400   	איפה תקנו את זה?		DOVE LO COMPRARÁN ?
+7-03500   	איפה תקנה את זה 		DOVE  LO COMPRAI
+7-03501   			ובמשפט שלם..
+7-03600   	הם לא הולכים לקנות את זה כי זה יקר מאד		NON LO COMPRARÁN PERCHÉ SONO MOLTO COSTOSO
+7-03601   			ואיך נגיד בעתיד הקרוב ?
+7-03700   	הם לא יקנו אותם  כי הם יקרים מדי		NON VANNO A COMPRARLI PERCHÉ SONO TROPPO COSTOSO
+7-03701   			ושוב, חזרה לעתיד הפשוט...
+7-03800   	אהיה כאן		SARÒ QUI
+7-03900   	אנחנו נהיה כאן מחר		SAREMO QUI DOMANI
+7-04101   	אתה תהיה כאן		SARAI QUI
+7-04100   	זה יהיה מוכן עבורך מחר		SARÀ PRONTO PER TE DOMANI
+7-04200   	הם יהיו כאן בהקדם		SARANNO QUI PRESTO
+7-04201   			ושוב, בעתיד קרוב..
+7-04300   	הם הולכים להיות כאן בהקדם		VANNO A ESSERE QUI PRESTO
+7-04501   			ומה העתיד של ANDARE ? -  הפתעה !! חוזרים לשם הפועל !!
+7-04600   	אני אלך לראות אותו		ANDRÓ A VEDERLO
+7-04700   	אנחנו נלך לראות אותו		ANDREMO A VEDERLO
+7-04800			ובעתיד הקרוב..
+7-04801  	אנחנו הולכים ללכת לראות אותו		ANDIAMO A ANDARE A VEDERLO
+7-04900   	יילך לראות אותו		ANDRÁ A VEDERLO
+7-05000   	הם יילכו לראות אותו בהקדם		ANDRANNO A VEDERLO PRESTO
+7-05100   	ואתה, רוברטו , תלך לראות אותו מחר		E TU ROBERTA ANDRAI A VEDERLO DOMANI
+7-05101			הטיות העתיד  של AVERE
+7-05300   	הטיות עתידה הפועל
+AVERE = TO HAVE		AVRÓ, AVRAI, AVRÁ, AVREMO, …, AVRANNO
+7-05301   			ההטיות של  PARTIRE
+7-05900	הטיות עתידה הפועל
+PARTIRE = לצאת		PARTIRÓ, PARTIRAI, PARTIRÁ, PARTIREMO, … , PARTIRANNO
+7-05901   	  		ההטיות העתיד של  	METTERE
+
+7-06500   	הטיות עתידה הפועל
+METTERE = לשים		METTERÓ, METTERAI, METTERÁ, METEREMO, … , METERANNO
+7-06501   	 		ההטיות של  ARRIVARE
+
+7-07100   	הטיות עתידה הפועל
+ARRIVARE = לבוא		ARIVERÓ, ARRIVERAI, ARRIVERÁ, ARIVEREMO, …, ARRIVERANNO
+7-07101	 		שני הפעלים החשובים FARE ו  DIRE שונים – מקצרים אותם :
+
+7-07102			ההטיות העתיד של  FARE
+7-07600   	הטיות עתידה הפועל
+FARE		FARÓ, FARAI, FARÁ, FAREMO, …, FARANNO
+7-07601	 		ההטיות העתיד של  DIRE
+7-08200   	הטיות עתידה הפועל
+DIRE		DIRÓ, DIRAI, DIRÁ, DIREMO, … , DIRANNO
+7-08201   	 		כמה שימושים..
+7-08700   	אגיד לך את זה יותר מאוחר  		TE LO DIRÒ PIU TARDI
+7-08900    	אנחנו נגיד לך (מנומס)		TE DIREMO
+7-09000  	הוא יגיד לך		TE DIRÁ
+7-09100    	הוא יגיד לי		ME DIRÁ
+7-09200    	מתי תגיד לי את זה ?  		QUANDO ME LO DIRAI ?
+7-09401			ועכשיו, לטעם אישי..
+7-09402   	מוצא חן בעייני		MI PIACE
+7-09403   			ומשפטים עם זה...
+7-09500   	אני אוהב מאד לראות אותו		MI PIACE MOLTO VEDERLO
+7-09501   			או בשילוב עם "התפעל"..
+7-09600   	אני לא אוהב להישאר כאן		NON MI PIACE STARE QUI
+7-09601   			זה "תופס" גם בגופים אחרים..
+7-09700   	מוצא חן בעיניך, או אתה אוהב		TI PIACE
+7-09701   			ובשאלה..
+7-09800   	זה מוצה חן בעיניך ?			TI PIACE ?
+7-09802			ומכאן קפיצה למשלוחים..
+7-09900	לשלוח		MANDARE
+7-10000   	אתה שולח את זה		LO MANDA 
+7-10100   	אתה שולח את זה אלי		ME LO MANDI
+7-10101			נרכיב משפט ארוך...
+7-10200  	הוא לא שולח את זה אלי היום		NON ME LO MANDA OGGI 
+
+7-10300   	אבל הוא ישלח את זה אלי מחר		MA ME LO MANDARÀ DOMANI
+7-10301   			ויחד, למשפט הארוך..
+7-10302	אבל הוא הולך לשלוח את זה אלי מחר		NON ME LO MANDA OGGI MA ME LO MANDARÁ DOMANI 
+7-10303  			את המשפט השני אפשר להגיד גם בעתיד קרוב..
+7-10400   	אבל הוא שולח את זה אלי מחר		MA VA A MANDARMELO DOMANI
+7-10401   			או בהווה, כי יש רמז לעתיד..
+7-10500   	אבל אתה שולח את זה אלי מחר		MA ME LO MANDA DOMANI
+7-10700   	אני שולח לך משהו		TE MANDO QUALCOSA
+7-10800   	אני שולח אותם אליך 		TE LI MANDO
+7-11401   			במשפט שאלה..
+7-11500   	תוכל לשלוח את זה אלי ?		PUOI MANDARMELO ?
+7-11501			או..
+7-11600   	תוכל לשלוח את זה אליו ?		PUOI MANDARSELO A LUI ?
+7-11601   			חזרה קצרה.... 
+7-11700   	אוהב לראות את זה		MI PIACE VEDERLO
+7-11802   			ושוב ניזכר משפט עם העתיד של הפועל SER
+7-11900   	זה לא יהיה הכרחי		NON SARÀ NECESSARIO
+7-11901   			ולא פחות חשוב - איך נפליג אל העבר?
+7-11902   			מה שנלמד זו הטיית , ה PERFECTO DE INDICATIVO =  העבר הקרוב – זה קל ושימושי אבל , שוב, צריך לשנן את הטיית הפועל AVERE בהווה..
+7-11903     	הטיות הווה לפועל AVERE		HO, HAI, HA, ABBIAMO, … ,HANNO
+7-11904   			  אבל, להבדיל מההטייה בעתיד, שם נדרשנו לזכור רק סיומות, כאן צריך לזכור את ההטייה במלואה..
+7-11905     			תצורת הפועל העיקרי, שמצטרפת להטיית AVERE נקרא לה ATO/UTO  כי אלה הסיומות – פעלי ARE מקבלים ATO ופעלי לא-ARE מקבלים  UTO  - (ישנם מעט יוצאים מן הכלל)) למשל..
+7-11907     			כמה דוגמאות ...
+7-12000    	קניתי 
+		HO COMPRATO
+7-12001   	דיברתי
+		HO PARLATO
+7-12002	הבאת
+		HO PORTATO 
+7-12003     	לקחו
+		HANNO PRENDUTO
+7-12004    	אכלנו
+		ABBIAMO MANGIATO 
+7-12005    			דוגמאות נוספות..
+7-12200    	קניתי משהו		HO COMPRATO QUALCOSA
+7-12300   	אנחנו קנינו משהו		ABBIAMO COMPRATO QUALCOSA
+7-12400   	קנינו את זה		LO ABBIAMO COMPRATO
+7-12500      	הוא קנה את זה		L'A COMPRATO
+7-12600   	הוא לא קנה את זה		NON L'A COMPRATO
+7-12700   	איפה קנית את זה ?		DOVE LO HAI COMPRATO ?  
+7-12800   	הוא מכר את זה		L'HO VENDUTO
+7-13401    			ועוד פעלים רגילים..
+7-13500   	לחכות, לקוות		SPERARE
+7-13600   	אני מחכה		SPERO
+7-13700    	הוא מחכה		SPERA
+7-13800  	ליידע		INFORMARE
+7-13801			ומשפט בנושא..
+7-13900    	אני רוצה לגלות איפה זה		VOGLIO INFORMARE DOVE Ė
+7-14201   			ומשפט תלונה נפוץ..
+7-14300	למה אתה לא מחכה לי ?		PERCHÉ NON ME SPERA ?
+						

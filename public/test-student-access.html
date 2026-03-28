@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בדיקת גישה לשיעורים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .lesson {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+        }
+        .lesson.available {
+            background: #e3f2fd;
+            border-color: #2196F3;
+        }
+        .lesson.locked {
+            background: #f5f5f5;
+            border-color: #999;
+            opacity: 0.6;
+        }
+        .lesson.completed {
+            background: #e8f5e9;
+            border-color: #4CAF50;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .status.available { background: #2196F3; color: white; }
+        .status.locked { background: #999; color: white; }
+        .status.completed { background: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🔍 בדיקת גישה לשיעורים - תלמידים</h1>
+    
+    <div class="section">
+        <h2>1. התחבר כתלמיד</h2>
+        <input type="text" id="username" placeholder="שם משתמש" value="test">
+        <input type="password" id="password" placeholder="סיסמה" value="test1234">
+        <button onclick="testLogin()">התחבר</button>
+        <div id="loginResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. בדוק שיעורים זמינים</h2>
+        <button onclick="checkLessons()">בדוק שיעורים</button>
+        <div id="lessonsResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>3. סימולציה של StudentDashboard</h2>
+        <button onclick="simulateStudentView()">הצג תצוגת תלמיד</button>
+        <div id="simulationResult"></div>
+    </div>
+
+    <script type="module">
+        const SUPABASE_URL = 'https://rtgnsganshsnftxexaww.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0Z25zZ2Fuc2hzbmZ0eGV4YXd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MDEzMDAsImV4cCI6MjA4NTM3NzMwMH0.oMV1qWvnV8o7_3tT2orQR5P7CTfpQxyYwjJbOPEjcxg';
+
+        let currentUser = null;
+        
+        window.testLogin = async function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const result = document.getElementById('loginResult');
+            
+            result.innerHTML = '<p>מתחבר...</p>';
+            
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/verify_user_login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    },
+                    body: JSON.stringify({
+                        p_username: username,
+                        p_password: password
+                    })
+                });
+                
+                const data = await response.json();
+                console.log('Login response:', data);
+                
+                if (data && data.length > 0) {
+                    currentUser = data[0];
+                    result.innerHTML = `
+                        <div style="color: green;">
+                            ✅ התחברות הצליחה!<br>
+                            <strong>משתמש:</strong> ${currentUser.username}<br>
+                            <strong>תפקיד:</strong> ${currentUser.role}<br>
+                            <strong>ID:</strong> ${currentUser.id}
+                        </div>
+                    `;
+                } else {
+                    result.innerHTML = '<div style="color: red;">❌ שם משתמש או סיסמה שגויים</div>';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                result.innerHTML = `<div style="color: red;">❌ שגיאה: ${error.message}</div>`;
+            }
+        };
+        
+        window.checkLessons = async function() {
+            const result = document.getElementById('lessonsResult');
+            
+            if (!currentUser) {
+                result.innerHTML = '<div style="color: red;">❌ נא להתחבר תחילה</div>';
+                return;
+            }
+            
+            result.innerHTML = '<p>בודק שיעורים...</p>';
+            
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/lessons?is_published=eq.true&order=index`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                
+                const lessons = await response.json();
+                console.log('Lessons:', lessons);
+                
+                result.innerHTML = `
+                    <div style="color: green;">
+                        ✅ נמצאו ${lessons.length} שיעורים מפורסמים
+                    </div>
+                    <pre>${JSON.stringify(lessons, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('Error loading lessons:', error);
+                result.innerHTML = `<div style="color: red;">❌ שגיאה: ${error.message}</div>`;
+            }
+        };
+        
+        window.simulateStudentView = async function() {
+            const result = document.getElementById('simulationResult');
+            
+            if (!currentUser) {
+                result.innerHTML = '<div style="color: red;">❌ נא להתחבר תחילה</div>';
+                return;
+            }
+            
+            result.innerHTML = '<p>טוען נתונים...</p>';
+            
+            try {
+                // Load lessons
+                const lessonsResponse = await fetch(`${SUPABASE_URL}/rest/v1/lessons?is_published=eq.true&order=index`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                const lessons = await lessonsResponse.json();
+                
+                // Load progress
+                const progressResponse = await fetch(`${SUPABASE_URL}/rest/v1/progress?user_id=eq.${currentUser.id}`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                const progress = await progressResponse.json();
+                
+                console.log('Simulation data:', { lessons, progress });
+                
+                // Simulate getLessonStatus logic
+                let html = '<h3>תצוגת שיעורים (כמו ב-StudentDashboard):</h3>';
+                
+                lessons.forEach(lesson => {
+                    let status = 'locked';
+                    
+                    if (lesson.index === 0) {
+                        status = 'available';
+                    } else {
+                        const lessonProgress = progress.find(p => p.lesson_id === lesson.id);
+                        if (lessonProgress && lessonProgress.is_completed) {
+                            status = 'completed';
+                        } else {
+                            const previousLesson = lessons.find(l => l.index === lesson.index - 1);
+                            if (previousLesson) {
+                                const previousProgress = progress.find(p => p.lesson_id === previousLesson.id);
+                                if (previousProgress && previousProgress.is_completed) {
+                                    status = 'available';
+                                }
+                            }
+                        }
+                    }
+                    
+                    const emoji = status === 'locked' ? '🔒' : status === 'completed' ? '✅' : '📖';
+                    html += `
+                        <div class="lesson ${status}">
+                            <span class="status ${status}">${status}</span>
+                            ${emoji} <strong>שיעור ${lesson.index}:</strong> ${lesson.title}
+                        </div>
+                    `;
+                });
+                
+                html += `
+                    <h3>סטטיסטיקה:</h3>
+                    <ul>
+                        <li>סה"כ שיעורים: ${lessons.length}</li>
+                        <li>שיעורים שהושלמו: ${progress.filter(p => p.is_completed).length}</li>
+                        <li>רשומות התקדמות: ${progress.length}</li>
+                    </ul>
+                `;
+                
+                result.innerHTML = html;
+            } catch (error) {
+                console.error('Simulation error:', error);
+                result.innerHTML = `<div style="color: red;">❌ שגיאה: ${error.message}</div>`;
+            }
+        };
+    </script>
+</body>
+</html>
