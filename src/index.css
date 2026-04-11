@@ -52,12 +52,6 @@
   .thin-scrollbar > * {
     direction: rtl;
   }
-  .info-content font[size] {
-    font-size: inherit !important;
-  }
-  .info-content [style*="font-size"] {
-    font-size: inherit !important;
-  }
 }
 
 @layer base {
