@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Volume2, Languages, Edit3, ArrowLeft, Mic, MicOff, AlertCircle, X, RotateCcw } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -25,6 +25,17 @@ export default function LineDisplay({ line, onNext }: Props) {
   const [recognition, setRecognition] = useState<any>(null);
   const [existingNote, setExistingNote] = useState('');
   const [shareWithAdmin, setShareWithAdmin] = useState(false);
+  const isMountedRef = useRef(true);
+  const stopTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+      if (stopTimeoutRef.current) clearTimeout(stopTimeoutRef.current);
+    };
+  }, []);
 
   // Calculate plain text length of text_it for dynamic font sizing
   const plainTextItLength = useMemo(() => {
@@ -173,11 +184,14 @@ export default function LineDisplay({ line, onNext }: Props) {
   const handleStopRecording = () => {
     if (recognition) {
       stopRecording(recognition);
-      // Note: setIsRecording(false) will be called by the result callback
-      // But set it here as a fallback in case no transcript was captured
-      setTimeout(() => {
-        setIsRecording(false);
-      }, 100);
+      // Fallback: set isRecording=false after short delay if callback didn't fire
+      if (stopTimeoutRef.current) clearTimeout(stopTimeoutRef.current);
+      stopTimeoutRef.current = setTimeout(() => {
+        if (isMountedRef.current) {
+          setIsRecording(false);
+        }
+        stopTimeoutRef.current = null;
+      }, 300);
     }
   };
 
@@ -190,7 +204,7 @@ export default function LineDisplay({ line, onNext }: Props) {
       similarity_score: score,
     });
   };
-  const noteModalWithOverlay = createPortal(
+  const noteModalWithOverlay = showNote ? createPortal(
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div className="bg-white w-full max-w-lg rounded-[2rem] shadow-2xl p-6 md:p-8 relative transform transition-all" dir="rtl">
         <button 
@@ -240,9 +254,9 @@ export default function LineDisplay({ line, onNext }: Props) {
       </div>
     </div>,
     document.body
-  );
+  ) : null;
 
-  const speechModalWithOverlay = createPortal(
+  const speechModalWithOverlay = showSpeech ? createPortal(
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div className="bg-white w-full max-w-lg rounded-[2rem] shadow-2xl p-6 md:p-8 relative transform transition-all text-center" dir="rtl">
         <button 
@@ -398,7 +412,7 @@ export default function LineDisplay({ line, onNext }: Props) {
       </div>
     </div>,
     document.body
-  );
+  ) : null;
 
   if (line.type === 'INFO' || line.type === 'LINK') {
     return (
@@ -412,7 +426,7 @@ export default function LineDisplay({ line, onNext }: Props) {
               />
             </div>
 
-            {showNote && noteModalWithOverlay}
+            {noteModalWithOverlay}
           </div>
         </div>
 
@@ -478,8 +492,8 @@ export default function LineDisplay({ line, onNext }: Props) {
               </div>
             )}
 
-            {showNote && noteModalWithOverlay}
-            {showSpeech && speechModalWithOverlay}
+            {noteModalWithOverlay}
+            {speechModalWithOverlay}
           </div>
         </div>
       </div>

@@ -21,6 +21,17 @@ export default function LessonScreen({ lesson, onBack }: Props) {
   const [showCompletion, setShowCompletion] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
+  const confettiIntervalRef = useRef<any>(null);
+
+  // Cleanup confetti interval on unmount
+  useEffect(() => {
+    return () => {
+      if (confettiIntervalRef.current) {
+        clearInterval(confettiIntervalRef.current);
+        confettiIntervalRef.current = null;
+      }
+    };
+  }, []);
 
   // Restore current line index from localStorage on mount
   useEffect(() => {
@@ -260,7 +271,9 @@ export default function LessonScreen({ lesson, onBack }: Props) {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
-        return clearInterval(interval);
+        clearInterval(interval);
+        confettiIntervalRef.current = null;
+        return;
       }
 
       const particleCount = 50 * (timeLeft / duration);
@@ -276,6 +289,7 @@ export default function LessonScreen({ lesson, onBack }: Props) {
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
       });
     }, 250);
+    confettiIntervalRef.current = interval;
   };
 
   const currentLine = lines[currentLineIndex];

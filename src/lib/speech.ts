@@ -218,6 +218,7 @@ export async function stopRecording(recognition: any): Promise<void> {
 
 // Web Audio API context for better iOS compatibility
 let audioContext: AudioContext | null = null;
+let audioUnlocked = false;
 
 function getAudioContext(): AudioContext {
   if (!audioContext) {
@@ -227,7 +228,11 @@ function getAudioContext(): AudioContext {
 }
 
 // Call this on first user interaction (touch/click) to unlock audio on iOS/mobile
+// Only runs ONCE to avoid accumulating audio buffer sources
 export function unlockAudio(): void {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  
   const ctx = getAudioContext();
   if (ctx.state === 'suspended') {
     ctx.resume().then(() => {
@@ -235,14 +240,18 @@ export function unlockAudio(): void {
     });
   }
   
-  // Also create a silent buffer to fully unlock
+  // Create a silent buffer to fully unlock (only once)
   const buffer = ctx.createBuffer(1, 1, 22050);
   const source = ctx.createBufferSource();
   source.buffer = buffer;
   source.connect(ctx.destination);
   source.start(0);
+  source.onended = () => source.disconnect();
   console.log('🔓 Audio unlocked for mobile');
 }
+
+// Track current audio to stop/clean previous one before playing new
+let currentAudio: HTMLAudioElement | null = null;
 
 
 const GOOGLE_API_KEY = 'AIzaSyCnhDQbfnpgqyid2nMPaDsW53_rtZt6pWk';
@@ -285,7 +294,25 @@ export async function speakText(text: string, language: string = 'pt-BR'): Promi
       const data = await response.json();
       if (data.audioContent) {
         console.log('🔊 Using Google Cloud Neural Voice (API)');
+        // Clean up previous audio to prevent memory leaks
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.removeAttribute('src');
+          currentAudio.load();
+          currentAudio = null;
+        }
         const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`);
+        currentAudio = audio;
+        audio.onended = () => {
+          audio.removeAttribute('src');
+          audio.load();
+          if (currentAudio === audio) currentAudio = null;
+        };
+        audio.onerror = () => {
+          audio.removeAttribute('src');
+          audio.load();
+          if (currentAudio === audio) currentAudio = null;
+        };
         await audio.play();
         return;
       }
