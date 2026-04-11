@@ -19,7 +19,9 @@ export function createSpeechRecognition(language: string = 'pt-BR'): any {
     return {
       native: true,
       lang: language,
-      cleanup: null
+      cleanup: null,
+      lastTranscript: '',
+      onFinalResult: null
     };
   }
 
@@ -31,17 +33,30 @@ export function createSpeechRecognition(language: string = 'pt-BR'): any {
   const recognition = new SpeechRecognitionAPI();
 
   recognition.lang = language;
-  recognition.continuous = false;
-  recognition.interimResults = false;
+  recognition.continuous = true;  // Keep listening
+  recognition.interimResults = true;  // Get interim results
   recognition.maxAlternatives = 1;
 
   return recognition;
 }
 
+// Estimate speaking duration based on text length (in milliseconds)
+// Average speaking rate: ~150 words/min = 2.5 words/sec
+// Average word length in Portuguese: ~5 chars
+// So roughly 12.5 chars/sec, we add buffer for slower speakers
+function estimateSpeakingDuration(text: string): number {
+  const plainText = text.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+  const charCount = plainText.length;
+  // Base: 8 chars per second (slower estimate), minimum 3 seconds, max 30 seconds
+  const estimatedSeconds = Math.max(3, Math.min(30, charCount / 8));
+  return estimatedSeconds * 1000;
+}
+
 export async function startRecording(
   recognition: any,
   onResult: (result: SpeechRecognitionResult) => void,
-  onError: (error: string) => void
+  onError: (error: string) => void,
+  textToMatch?: string
 ): Promise<void> {
   if (!recognition) {
     onError('זיהוי קולי לא נתמך');
@@ -66,18 +81,21 @@ export async function startRecording(
 
       // Cleanup previous listener if any
       if (recognition.cleanup) recognition.cleanup();
+      
+      // Reset transcript storage
+      recognition.lastTranscript = '';
+      recognition.onFinalResult = onResult;
 
       // We use 'partialResults' to get updates as the user speaks
+      // Store transcript but don't call onResult yet - wait for manual stop
       const listener = await SpeechRecognition.addListener('partialResults', (data: any) => {
         // Android returns { matches: ["text"] }
         // iOS returns { value: ["text"] }
         const transcript = (data.matches && data.matches[0]) || (data.value && data.value[0]);
         
         if (transcript) {
-          onResult({
-            transcript: transcript,
-            confidence: 0.9
-          });
+          recognition.lastTranscript = transcript;
+          console.log('📝 Partial transcript:', transcript);
         }
       });
 
@@ -87,7 +105,7 @@ export async function startRecording(
 
       await SpeechRecognition.start({
         language: recognition.lang,
-        maxResults: 1,
+        maxResults: 5,
         prompt: "דבר עכשיו...", // Android only popup
         partialResults: true,
         popup: false 
@@ -100,13 +118,25 @@ export async function startRecording(
     return;
   }
 
-  // Web Implementation
+  // Web Implementation - continuous mode for longer sentences
+  let finalTranscript = '';
+  
   recognition.onresult = (event: any) => {
-    const result = event.results[0][0];
-    onResult({
-      transcript: result.transcript,
-      confidence: result.confidence,
-    });
+    let interimTranscript = '';
+    
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      const transcript = event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        finalTranscript += transcript;
+      } else {
+        interimTranscript += transcript;
+      }
+    }
+    
+    // Store the transcript for when recording stops
+    recognition.lastTranscript = finalTranscript || interimTranscript;
+    recognition.onFinalResult = onResult;
+    console.log('📝 Web transcript:', recognition.lastTranscript);
   };
 
   recognition.onerror = (event: any) => {
@@ -127,6 +157,10 @@ export async function startRecording(
     onError(errorMessage);
   };
 
+  // Initialize for web
+  recognition.lastTranscript = '';
+  recognition.onFinalResult = onResult;
+
   try {
     recognition.start();
   } catch (error) {
@@ -143,12 +177,38 @@ export async function stopRecording(recognition: any): Promise<void> {
            await recognition.cleanup();
            recognition.cleanup = null;
         }
+        
+        // Call the final result callback with accumulated transcript
+        if (recognition.onFinalResult && recognition.lastTranscript) {
+          recognition.onFinalResult({
+            transcript: recognition.lastTranscript,
+            confidence: 0.9
+          });
+        }
+        
+        // Reset
+        recognition.lastTranscript = '';
+        recognition.onFinalResult = null;
+        
       } catch (error) {
         console.error('Error stopping native recognition:', error);
       }
     } else {
       try {
         recognition.stop();
+        
+        // Call the final result callback with accumulated transcript
+        if (recognition.onFinalResult && recognition.lastTranscript) {
+          recognition.onFinalResult({
+            transcript: recognition.lastTranscript,
+            confidence: 0.9
+          });
+        }
+        
+        // Reset
+        recognition.lastTranscript = '';
+        recognition.onFinalResult = null;
+        
       } catch (error) {
         console.error('Error stopping recognition:', error);
       }

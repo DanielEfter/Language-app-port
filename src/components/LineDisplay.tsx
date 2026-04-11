@@ -173,7 +173,11 @@ export default function LineDisplay({ line, onNext }: Props) {
   const handleStopRecording = () => {
     if (recognition) {
       stopRecording(recognition);
-      setIsRecording(false);
+      // Note: setIsRecording(false) will be called by the result callback
+      // But set it here as a fallback in case no transcript was captured
+      setTimeout(() => {
+        setIsRecording(false);
+      }, 100);
     }
   };
 
