@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Palette, Bold, Underline, Type } from 'lucide-react';
+import { Palette, Bold, Underline, Type, Smile } from 'lucide-react';
 import type { Line, LineType } from '../../lib/database.types';
 
 interface Props {
@@ -12,8 +12,37 @@ interface Props {
 export default function LineForm({ line, onChange, title, titleColor }: Props) {
   const [showColorEditor, setShowColorEditor] = useState(false);
   const [selectedText, setSelectedText] = useState<{ start: number; end: number } | null>(null);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [showFontSizeMenu, setShowFontSizeMenu] = useState(false);
   const editableRef = useRef<HTMLDivElement>(null);
   const hebrewEditableRef = useRef<HTMLDivElement>(null);
+
+  const commonEmojis = [
+    '😊', '😂', '🤣', '❤️', '👍', '👏', '🎉', '🔥',
+    '✅', '❌', '⭐', '💡', '📌', '📝', '🎯', '🏆',
+    '👉', '👈', '☝️', '👇', '🤔', '😎', '🥳', '💪',
+    '🇧🇷', '🇮🇱', '🇺🇸', '🇬🇧', '🌍', '✨', '💬', '🗣️',
+    '📖', '📚', '🎵', '🎶', '👀', '💯', '⚡', '🌟',
+    '🙏', '🤝', '👋', '😍', '🫶', '💫', '🎓', '📣'
+  ];
+
+  const fontSizes = [
+    { label: 'קטן מאוד', size: '1', displaySize: '10px' },
+    { label: 'קטן', size: '2', displaySize: '13px' },
+    { label: 'רגיל', size: '3', displaySize: '16px' },
+    { label: 'בינוני', size: '4', displaySize: '18px' },
+    { label: 'גדול', size: '5', displaySize: '24px' },
+    { label: 'גדול מאוד', size: '6', displaySize: '32px' },
+  ];
+
+  const insertEmoji = (emoji: string) => {
+    if (hebrewEditableRef.current) {
+      hebrewEditableRef.current.focus();
+      document.execCommand('insertText', false, emoji);
+      onChange({ ...line, text_he: hebrewEditableRef.current.innerHTML });
+    }
+    setShowEmojiPicker(false);
+  };
 
   const handleItalianInput = () => {
     // תמיד LTR
@@ -300,7 +329,7 @@ export default function LineForm({ line, onChange, title, titleColor }: Props) {
         <label className="block text-sm font-medium mb-1">תרגום לעברית</label>
         <div className="border rounded-lg bg-white" dir="rtl">
           {/* Formatting toolbar */}
-          <div className="flex gap-2 p-2 border-b bg-gray-50">
+          <div className="flex flex-wrap gap-1 p-2 border-b bg-gray-50 items-center">
             <button
               type="button"
               onClick={() => {
@@ -323,40 +352,67 @@ export default function LineForm({ line, onChange, title, titleColor }: Props) {
             >
               <Underline className="w-4 h-4" />
             </button>
-            <div className="border-r mx-2"></div>
-            <button
-              type="button"
-              onClick={() => {
-                document.execCommand('fontSize', false, '5');
-                hebrewEditableRef.current?.focus();
-              }}
-              className="p-2 hover:bg-gray-200 rounded transition-colors text-sm font-bold"
-              title="גדול"
-            >
-              <Type className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                document.execCommand('fontSize', false, '3');
-                hebrewEditableRef.current?.focus();
-              }}
-              className="p-2 hover:bg-gray-200 rounded transition-colors text-xs"
-              title="רגיל"
-            >
-              <Type className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                document.execCommand('fontSize', false, '1');
-                hebrewEditableRef.current?.focus();
-              }}
-              className="p-2 hover:bg-gray-200 rounded transition-colors text-xs"
-              title="קטן"
-            >
-              <Type className="w-3 h-3" />
-            </button>
+            <div className="border-r mx-1 h-6"></div>
+            {/* Font size dropdown */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => { setShowFontSizeMenu(!showFontSizeMenu); setShowEmojiPicker(false); }}
+                className="flex items-center gap-1 px-2 py-1.5 hover:bg-gray-200 rounded transition-colors text-sm"
+                title="גודל טקסט"
+              >
+                <Type className="w-4 h-4" />
+                <span className="text-xs">גודל</span>
+              </button>
+              {showFontSizeMenu && (
+                <div className="absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-1 z-20 min-w-[140px]">
+                  {fontSizes.map((fs) => (
+                    <button
+                      key={fs.size}
+                      type="button"
+                      onClick={() => {
+                        document.execCommand('fontSize', false, fs.size);
+                        hebrewEditableRef.current?.focus();
+                        setShowFontSizeMenu(false);
+                      }}
+                      className="w-full text-right px-3 py-1.5 hover:bg-blue-50 rounded transition-colors flex items-center justify-between gap-2"
+                    >
+                      <span style={{ fontSize: fs.displaySize }}>{fs.label}</span>
+                      <span className="text-xs text-gray-400">{fs.displaySize}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="border-r mx-1 h-6"></div>
+            {/* Emoji picker */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => { setShowEmojiPicker(!showEmojiPicker); setShowFontSizeMenu(false); }}
+                className="flex items-center gap-1 px-2 py-1.5 hover:bg-gray-200 rounded transition-colors text-sm"
+                title="אימוג'י"
+              >
+                <Smile className="w-4 h-4" />
+                <span className="text-xs">אימוג'י</span>
+              </button>
+              {showEmojiPicker && (
+                <div className="absolute top-full right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-2 z-20 w-[280px]">
+                  <div className="grid grid-cols-8 gap-1">
+                    {commonEmojis.map((emoji) => (
+                      <button
+                        key={emoji}
+                        type="button"
+                        onClick={() => insertEmoji(emoji)}
+                        className="w-8 h-8 flex items-center justify-center text-lg hover:bg-gray-100 rounded transition-colors"
+                      >
+                        {emoji}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           {/* Editable div */}
           <div
